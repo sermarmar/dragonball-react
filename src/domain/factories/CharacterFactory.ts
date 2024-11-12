@@ -5,7 +5,8 @@ export const CharacterFactory = {
         return {
             id: data.id,
             name: data.name,
-            imageUrl: data.image,
+            description: data.description,
+            image: data.image,
             race: data.race ?? "No description available"
         }
     }

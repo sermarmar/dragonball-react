@@ -1,6 +1,7 @@
-export interface CharacterDTO {
+export interface Character {
     id: string;
     name: string;
-    image: string;
+    description: string;
+    'image': string;
     race?: string;
 }
