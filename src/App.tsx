@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import { CharacterListPage } from './app/pages/CharacterListPage'
+import { CharacterProvider } from './app/providers/CharacterProvider';
 
 /**
  * TODO: usuando la api de dragon ball https://web.dragonball-api.com/
@@ -13,6 +14,8 @@ import { CharacterListPage } from './app/pages/CharacterListPage'
 
 export const App: React.FC = () => {
     return (
-        <CharacterListPage />
+        <CharacterProvider>
+            <CharacterListPage />
+        </CharacterProvider>
     );
 }

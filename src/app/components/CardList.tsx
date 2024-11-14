@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { CharacterCard } from "./CharacterCard";
+import { Character } from "../../domain/models/Character";
 
 interface CardListProps{
-    list: any[]
+    list: Character[]
 }
 
 export const CardList: React.FC<CardListProps> = ({list}) => {
@@ -15,7 +16,7 @@ export const CardList: React.FC<CardListProps> = ({list}) => {
     `
 
     const cards = list.map(character => {
-        return <CharacterCard character={character}/>
+        return <CharacterCard key={character.id} character={character}/>
     });
     
     return (
