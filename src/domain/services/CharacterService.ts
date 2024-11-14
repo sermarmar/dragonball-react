@@ -6,9 +6,17 @@ import { Character } from "../models/Character";
 export const CharacterService = {
     
     async getCharacters(): Promise<Character[]> {
-        return DragonBallApi.findAll().then((response) => {
-            return response.data.items.map(CharacterFactory.create)
-        });
+        if(localStorage.getItem('characters') === null) {
+            return DragonBallApi.findAll().then((response) => {
+                const characters = response.data.items.map(CharacterFactory.create);
+                localStorage.setItem('characters', JSON.stringify(characters));
+                
+                return characters;
+            });
+        } else {
+            return JSON.parse(localStorage.getItem('characters') || '[]');
+        }
+        
     }
 
 

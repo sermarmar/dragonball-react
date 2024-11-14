@@ -49,6 +49,12 @@ const Button = styled.button`
     font-weight: bold;
     border-radius: 3px;
     border: none;
+    &:hover {
+        background-color: #904258;
+    }
+    &:active {
+        background-color: #6c3142;
+    }
 `
 
 export const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
