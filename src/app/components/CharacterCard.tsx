@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import { Character } from '../../domain/models/Character';
 import styled from "@emotion/styled";
-
+import { useCharacter } from "../providers/character/useCharacter";
 interface CharacterCardProps {
     character: Character
 }
@@ -33,20 +33,38 @@ const Image = styled.img`
 
 const Description = styled.div`
     background-color: #f9ebba;
+    padding: 20px 40px;
     z-index: 0;
+    display: flex;
+    justify-content: space-between;
+`
+const List = styled.ul`
+    list-style-type: none;
 `
 
-export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+const Button = styled.button`
+    padding: 10px 20px;
+    background-color: #a64c65;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+`
+
+export const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
+    //const { addFavorite } = useCharacter();
+
     return (
         <Card>
             <Avatar>
                 <Image src={ character.image } alt={ character.name } />
             </Avatar>
             <Description>
-                <ul>
+                <List>
                     <li>Nombre: { character.name }</li>
                     <li>Raza: { character.race }</li>
-                </ul>
+                </List>
+                <Button>Añadir favorito</Button>
             </Description>
         </Card>
     );
