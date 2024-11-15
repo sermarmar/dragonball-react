@@ -1,16 +1,19 @@
 import { FC } from "react";
 import { CardList } from "../components/CardList";
-import { useCharacter } from "../providers/character/useCharacter";
-import { Navigation } from "../components/Navigation";
+import styled from "@emotion/styled";
+import { useCharacter } from "../providers/useCharacter";
 
+const Title = styled.h1`
+        text-align: center;
+        margin-bottom: 40px;
+    `
 
 export const CharacterListPage: FC = () => {
     const { characters } = useCharacter();
 
     return(
         <>
-            <h1>Lista de personajes de Dragón Ball Z</h1>
-            <Navigation />
+            <Title>Lista de personajes de Dragón Ball Z</Title>          
             <CardList list={characters} />
         </>
     );

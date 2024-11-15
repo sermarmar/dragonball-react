@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Router } from "./Routers";
 import { CharacterListPage } from "../pages/CharacterListPage";
-import { Favorites } from "../pages/Favorites";
+import { FavoritesPage } from "../pages/FavoritesPage";
+import { Navigation } from "../components/Navigation";
 
 export const CharacterRoutes: FC = () => {
 
-    const router = createBrowserRouter([
+    /*const router = createBrowserRouter([
         {
             path: Router.INDEX,
             element: <CharacterListPage />,
@@ -15,9 +16,15 @@ export const CharacterRoutes: FC = () => {
             path: Router.FAVORITES,
             element: <Favorites />
         }
-    ]);
+    ]);*/
     
     return(
-        <RouterProvider router={ router } />
+        <BrowserRouter>
+            <Navigation />
+            <Routes>
+                <Route path={Router.INDEX} element={<CharacterListPage />} />
+                <Route path={Router.FAVORITES} element={<FavoritesPage />} />
+            </Routes>
+        </BrowserRouter>
     )
 }

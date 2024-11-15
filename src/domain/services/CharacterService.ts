@@ -17,7 +17,12 @@ export const CharacterService = {
             return JSON.parse(localStorage.getItem('characters') || '[]');
         }
         
+    },
+    createFavorites(favorites: Character[]): void {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    },
+    getFavorites(): Promise<Character[]> {
+        return JSON.parse(localStorage.getItem('favorites') || '[]');
     }
-
 
 }

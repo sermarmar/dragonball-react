@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Character } from '../../domain/models/Character';
 import styled from "@emotion/styled";
-import { useCharacter } from "../providers/character/useCharacter";
+import { useCharacter } from "../providers/useCharacter";
 interface CharacterCardProps {
     character: Character
 }
@@ -13,7 +13,7 @@ const Card = styled.div`
     border-radius: 6px;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 350px;
 `
 
 const Avatar = styled.div`
@@ -58,7 +58,17 @@ const Button = styled.button`
 `
 
 export const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
-    //const { addFavorite } = useCharacter();
+    const { favorites, addFavorite, removeFavorite } = useCharacter();
+
+    const isFavorite:boolean = favorites.some((fav) => fav.id === character.id);
+
+    const buttonFavorite = () => {
+        if(!isFavorite) {
+            return (<Button onClick={() => addFavorite(character)}>Añadir favorito</Button>)
+        } else {
+            return (<Button onClick={() => removeFavorite(character.id)}>Quitar favorito</Button>)
+        }
+    }
 
     return (
         <Card>
@@ -70,7 +80,7 @@ export const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
                     <li>Nombre: { character.name }</li>
                     <li>Raza: { character.race }</li>
                 </List>
-                <Button>Añadir favorito</Button>
+                { buttonFavorite() }
             </Description>
         </Card>
     );

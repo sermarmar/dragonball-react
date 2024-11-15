@@ -1,8 +1,7 @@
 import React from 'react'
 import './App.css'
-import { CharacterProvider } from './app/providers/character/CharacterProvider';
 import { CharacterRoutes } from './app/router/character.routes';
-import { Navigation } from './app/components/Navigation';
+import { CharacterProvider } from './app/providers/CharacterProvider';
 
 /**
  * TODO: usuando la api de dragon ball https://web.dragonball-api.com/
