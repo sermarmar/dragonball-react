@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Character } from '../../domain/models/Character';
 import styled from "@emotion/styled";
 import { useCharacter } from "../providers/useCharacter";
+import { Link } from "react-router-dom";
 interface CharacterCardProps {
     character: Character
 }
@@ -73,7 +74,9 @@ export const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
     return (
         <Card>
             <Avatar>
-                <Image src={ character.image } alt={ character.name } />
+                <Link to={'/detail/' + character.id}>
+                    <Image src={ character.image } alt={ character.name } />
+                </Link>
             </Avatar>
             <Description>
                 <List>

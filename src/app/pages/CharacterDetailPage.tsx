@@ -17,7 +17,10 @@ const Container = styled.div`
 `
 
 const Avatar = styled.img`
-    width: 250px;
+    width: 230px;
+    object-fit: contain;
+    min-height: 420px;
+    max-height: 420px;
 `
 
 const Description = styled.div`
