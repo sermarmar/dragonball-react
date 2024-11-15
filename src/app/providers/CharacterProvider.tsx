@@ -27,7 +27,7 @@ export const CharacterProvider: React.FC<CharacterProviderProps> = ({ children }
     }
 
     const removeFavorite = (characterId: number) => {
-        const listRemove = favorites.filter((fav, id) => fav.id !== characterId);
+        const listRemove = favorites.filter((fav) => fav.id !== characterId);
         setFavorites(listRemove);
         CharacterService.createFavorites(listRemove);
     }
